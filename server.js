@@ -5,6 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
 // importing the packages
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser')
 
 
 //importing our routes
@@ -22,7 +23,8 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.set('layout', 'layouts/layout')
 app.use(expressLayouts)
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
 
 //connecting to our models 
