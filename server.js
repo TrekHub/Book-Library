@@ -9,6 +9,7 @@ const expressLayouts = require('express-ejs-layouts');
 
 //importing our routes
 const indexRoutes = require('./routes/index');
+const authorRoutes = require('./routes/authors')
 
 
 
@@ -39,7 +40,9 @@ db.once('open', () => console.log('Connected to Mongoose'))
 
 
 //using our routes
-app.use('/', indexRoutes)
+app.use('/', indexRoutes);
+app.use('/authors', authorRoutes);
+
 
 
 // firing the up the server
