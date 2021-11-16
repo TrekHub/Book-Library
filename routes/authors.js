@@ -1,5 +1,4 @@
 const express = require('express');
-const author = require('../models/author');
 const router = express.Router()
 const Author = require('../models/author')
 
@@ -8,8 +7,8 @@ const Author = require('../models/author')
 router.get('/', async (req, res) => {
 
     let searchOptions = {}
-    if(req.query.name != null && req.query.name !== ''){
-        searchOptions.name = new  RegExp(req.query.name, 'i')
+    if (req.query.name != null && req.query.name !== '') {
+        searchOptions.name = new RegExp(req.query.name, 'i')
     }
 
 

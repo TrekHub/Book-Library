@@ -11,7 +11,7 @@ const bodyParser = require('body-parser')
 //importing our routes
 const indexRoutes = require('./routes/index');
 const authorRoutes = require('./routes/authors')
-
+const bookRoutes = require('./routes/books')
 
 
 //initialize express app
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
 //connecting to our models 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URL, {
+mongoose.connect(process.env.DATABASE_URL , {
 
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -44,6 +44,7 @@ db.once('open', () => console.log('Connected to Mongoose'))
 //using our routes
 app.use('/', indexRoutes);
 app.use('/authors', authorRoutes);
+app.use('/books', bookRoutes)
 
 
 
