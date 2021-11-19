@@ -25,9 +25,14 @@ const bookSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    coverImageName: {
+    coverImage: {
+        type: Buffer,
+        required: true
+    },
+    CoverImageType: {
         type: String,
         required: true
+
     },
     author: {
         type: mongoose.Schema.Types.ObjectId,
